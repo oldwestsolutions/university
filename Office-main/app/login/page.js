@@ -10,12 +10,15 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   // Check if user is already logged in
   useEffect(() => {
     const userSession = localStorage.getItem('userSession');
     if (userSession) {
-      router.replace('/university');
+      router.push('/university');
+    } else {
+      setIsLoading(false);
     }
   }, [router]);
 
@@ -24,17 +27,21 @@ export default function Login() {
     // University-specific credentials
     if (email === 'student@university.edu' && password === 'student123') {
       localStorage.setItem('userSession', 'student');
-      router.replace('/university');
+      router.push('/university');
     } else if (email === 'professor@university.edu' && password === 'professor123') {
       localStorage.setItem('userSession', 'professor');
-      router.replace('/university');
+      router.push('/university');
     } else if (email === 'admin@university.edu' && password === 'admin123') {
       localStorage.setItem('userSession', 'admin');
-      router.replace('/university');
+      router.push('/university');
     } else {
       setError('Invalid credentials. Please try again.');
     }
   };
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <div className="login-page">
@@ -98,7 +105,7 @@ export default function Login() {
                     <Button 
                       variant="primary" 
                       type="submit" 
-                      className="w-100"
+                      className="w-100 py-3"
                     >
                       Sign In
                     </Button>
