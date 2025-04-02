@@ -9,13 +9,7 @@ const nextConfig = {
   },
   experimental: {
     appDir: true
-  },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/' : '',
-  basePath: '',
-  poweredByHeader: false,
-  compress: true,
-  generateEtags: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  }
 };
 
 module.exports = nextConfig; 
