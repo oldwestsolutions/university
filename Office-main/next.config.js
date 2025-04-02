@@ -7,7 +7,9 @@ const nextConfig = {
     unoptimized: true,
     domains: ['localhost', 'vercel.com', '*.vercel.app'],
   },
-  experimental: {},
+  experimental: {
+    appDir: true
+  },
   assetPrefix: process.env.NODE_ENV === 'production' ? '/' : '',
   basePath: '',
   server: {

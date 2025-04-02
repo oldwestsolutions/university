@@ -8,9 +8,17 @@ export default function Home() {
 
   useEffect(() => {
     // Force redirect to login page
-    router.push('/login');
-  }, [router]);
+    router.replace('/login');
+  }, []);
 
-  // Show nothing while redirecting
-  return null;
+  // Show loading state while redirecting
+  return (
+    <div className="d-flex justify-content-center align-items-center min-vh-100">
+      <div className="text-center">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  );
 } 
