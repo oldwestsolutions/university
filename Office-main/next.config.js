@@ -12,9 +12,10 @@ const nextConfig = {
   },
   assetPrefix: process.env.NODE_ENV === 'production' ? '/' : '',
   basePath: '',
-  server: {
-    port: 3001,
-  },
+  poweredByHeader: false,
+  compress: true,
+  generateEtags: true,
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
 };
 
 module.exports = nextConfig; 

@@ -9,15 +9,37 @@
   "routes": [
     {
       "src": "/login",
-      "dest": "/login"
+      "dest": "/login",
+      "continue": false
     },
     {
       "src": "/university",
-      "dest": "/university"
+      "dest": "/university",
+      "continue": false
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1",
+      "continue": false
     },
     {
       "src": "/(.*)",
       "dest": "/"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
     }
   ]
 } 

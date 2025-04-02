@@ -8,7 +8,7 @@ export default function Home() {
 
   useEffect(() => {
     // Force redirect to login page
-    router.replace('/login');
+    window.location.href = '/login';
   }, []);
 
   // Show loading state while redirecting
